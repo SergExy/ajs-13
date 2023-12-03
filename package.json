@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --coverage",
     "build": "tcs",
-    "watch": "tcs -w"
+    "watch": "tcs -w",
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
