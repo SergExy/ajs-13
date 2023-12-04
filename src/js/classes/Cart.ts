@@ -12,11 +12,7 @@ export default class Cart {
   }
 
   get total (): number {
-    let total: number = 0
-    this._items.forEach((item: { price: number }) => {
-      total += item.price
-    })
-    return total
+    return this._items.reduce((totSum, totNum) => totSum + totNum.price, 0)
   };
 
   totalDisc (discount: number): number {
@@ -26,9 +22,6 @@ export default class Cart {
   };
 
   removeItem (id: number): void {
-    const items: Buyable[] = this._items
-    const index: number = items.findIndex((item) => item.id === id)
-    items.splice(index, 1)
-    this._items = items
+    this._items = this._items.filter((item) => item.id !== id)
   }
 }
